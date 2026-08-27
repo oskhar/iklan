@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kursus Pemrograman & Bimbingan Karier | Muhamad Oskhar</title>
+  <meta name="description"
+    content="Bimbingan Pemrograman, Bimbingan Karier, dan persiapan kerja bersama Software Engineer berpengalaman di Perbankan & Perusahaan." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph: ganti DOMAIN-VERCEL dengan domain Vercel setelah deploy -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kursus Pemrograman & Bimbingan Karier" />
+  <meta property="og:description"
+    content="Belajar pemrograman secara private bersama Software Engineer berpengalaman di perbankan & perusahaan. Tersedia sesi gratis 1 jam untuk mencoba." />
+  <meta property="og:image" content="https://DOMAIN-VERCEL.vercel.app/og-image.jpg" />
+  <meta property="og:url" content="https://DOMAIN-VERCEL.vercel.app/" />
+  <meta property="og:site_name" content="Muhamad Oskhar" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhamad Oskhar | Pemrograman & Bimbingan Karier" />
+  <meta name="twitter:description"
+    content="Pemrograman, Sisi Belakang Development & Bimbingan Karier untuk pemula hingga junior developer." />
+  <meta name="twitter:image" content="https://DOMAIN-VERCEL.vercel.app/og-image.jpg" />
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --white: #fff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --dark: #0f172a;
+      --green: #16a34a;
+      --green-bg: #f0fdf4;
+      --blue-bg: #eff6ff;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% -5%, #dbeafe 0, transparent 32%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 28px, 720px);
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 36px 0 20px;
+    }
+
+    .avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+      background: #e2e8f0;
+    }
+
+    .eyebrow,
+    .hero-label,
+    .teacher-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      color: #2563eb;
+    }
+
+    .eyebrow {
+      margin-top: 16px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eff6ff;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 11px auto 0;
+      font-size: clamp(28px, 8vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .headline {
+      max-width: 570px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      min-height: 49px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      flex: 1;
+      background: var(--dark);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
+    }
+
+    .btn-secondary {
+      flex: 1;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .hero-message,
+    .teacher-card,
+    .contact,
+    .conversation {
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
+    }
+
+    .hero-message {
+      margin-top: 12px;
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .hero-message .hero-label,
+    .conversation .hero-label {
+      color: #93c5fd;
+    }
+
+    .hero-message h2,
+    .conversation h2 {
+      margin-top: 8px;
+      font-size: clamp(22px, 6vw, 29px);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-message p,
+    .conversation p {
+      margin-top: 10px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-title {
+      margin: 0 4px 11px;
+      font-size: 20px;
+      letter-spacing: -0.025em;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .service {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+    }
+
+    .icon {
+      flex: 0 0 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--blue-bg);
+      font-size: 19px;
+    }
+
+    .service strong {
+      font-size: 14px;
+    }
+
+    .service p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .teacher-card {
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .teacher-card h2 {
+      margin-top: 5px;
+      font-size: 22px;
+    }
+
+    .teacher-card p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 15px;
+    }
+
+    .tags span {
+      padding: 7px 10px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 650;
+      color: #334155;
+    }
+
+    .price-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      min-height: 150px;
+    }
+
+    .price strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .price small {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .amount {
+      display: block;
+      margin-top: 14px;
+      font-size: 16px;
+      font-weight: 850;
+    }
+
+    .price.featured {
+      border: 2px solid #cbd5e1;
+    }
+
+    .price.free {
+      background: var(--green-bg);
+      border-color: #bbf7d0;
+    }
+
+    .price.free .amount {
+      color: #15803d;
+    }
+
+    .conversation {
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .conversation h2 {
+      color: var(--text);
+    }
+
+    .conversation p {
+      color: var(--muted);
+    }
+
+    .contact {
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .contact h2 {
+      font-size: 22px;
+      letter-spacing: -0.025em;
+    }
+
+    .contact>p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #f8fafc;
+    }
+
+    .contact-icon {
+      font-size: 20px;
+    }
+
+    .contact-row small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .contact-row strong {
+      display: block;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
+    .contact-button {
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 0 32px;
+      color: #94a3b8;
+      font-size: 10px;
+    }
+
+    .price-details {
+      margin-top: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      overflow: hidden;
+    }
+
+    .price-details summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .price-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .price-details summary:after {
+      content: "＋";
+      float: right;
+      color: var(--muted);
+    }
+
+    .price-details[open] summary:after {
+      content: "−";
+    }
+
+    .detail-list {
+      border-top: 1px solid var(--line);
+      padding: 4px 16px 10px;
+    }
+
+    .detail-list>div {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-list>div:last-child {
+      border-bottom: 0;
+    }
+
+    .detail-list strong {
+      font-size: 13px;
+    }
+
+    .detail-list span {
+      float: right;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .detail-list p {
+      clear: both;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (min-width: 620px) {
+      .container {
+        width: min(100% - 40px, 720px);
+      }
+
+      header {
+        padding-top: 50px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .price-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <img class="avatar" src="/profile.jpg" alt="Muhamad Oskhar" />
+
+      <div class="eyebrow">KURSUS PRIVAT • BIMBINGAN PERORANGAN</div>
+
+      <h1>Kursus Pemrograman & Bimbingan Karier</h1>
+
+      <p class="headline">
+        Menjembatani kesenjangan antara pendidikan Informatika dan kebutuhan
+        industri melalui pembelajaran terarah, portofolio, CV, serta persiapan
+        tes teknis dan wawancara kerja.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+          href="https://www.superprof.co.id/software-engineer-berpengalaman-perbankan-perusahaan-mengajar-pemrograman-dan-mentoring-karir-software-engineering.html"
+          target="_blank" rel="noopener">
+          Mulai Belajar
+        </a>
+        <a class="btn btn-secondary" href="#kontak"> Hubungi Saya </a>
+      </div>
+    </header>
+
+    <section class="hero-message">
+      <div class="hero-label">UNTUK KAMU YANG...</div>
+      <h2>
+        Lulusan Informatika, tapi belum merasa siap menghadapi dunia kerja?
+      </h2>
+      <p>
+        Kuliah memberikan fondasi, tetapi dunia kerja membutuhkan kemampuan
+        praktis, portofolio, serta kesiapan menghadapi proses rekrutmen.
+        Program ini hadir untuk membantu mahasiswa dan lulusan Informatika
+        menutup kesenjangan tersebut secara personal, bertahap, dan terarah.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Apa yang akan kamu dapatkan?</h2>
+
+      <div class="service-grid">
+        <article class="service">
+          <div class="icon">👨‍💻</div>
+          <div>
+            <strong>Bimbingan Perorangan</strong>
+            <p>
+              Fokus pada kebutuhan dan kemampuan kamu, bukan mengikuti kelas
+              massal.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🧭</div>
+          <div>
+            <strong>Peta Belajar</strong>
+            <p>
+              Menyusun prioritas kemampuan sesuai target pekerjaan dan
+              kesenjangan kemampuanmu.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🛠️</div>
+          <div>
+            <strong>Latihan Pemrograman</strong>
+            <p>
+              Latihan pemrograman, REST API, basis data, pengembangan sisi
+              belakang, pencarian kesalahan, dan proyek.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div class="icon">🎯</div>
+          <div>
+            <strong>Bimbingan Karier</strong>
+            <p>
+              Portofolio, GitHub, CV, tes teknis, wawancara kerja, dan
+              strategi memasuki dunia kerja.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="teacher-card">
+        <div class="teacher-label">TENTANG PENGAJAR</div>
+        <h2>Muhamad Oskhar</h2>
+        <p>
+          Insinyur Perangkat Lunak & Insinyur Sisi Belakang dengan pengalaman
+          lebih dari 3 tahun membangun sistem perusahaan, perbankan, dan
+          aplikasi yang digunakan dalam lingkungan nyata.
+        </p>
+
+        <div class="tags">
+          <span>Golang</span>
+          <span>Java</span>
+          <span>NestJS</span>
+          <span>Laravel</span>
+          <span>REST API</span>
+          <span>Basis Data</span>
+          <span>Layanan Mikro</span>
+          <span>Docker</span>
+          <span>Integrasi & Pengiriman Berkelanjutan</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">PILIHAN BELAJAR</h2>
+
+      <div class="price-list">
+        <div class="price free">
+          <strong>Sesi Percobaan & Konsultasi Awal</strong>
+          <small>Sesi pertama selama 1 jam untuk mengenal kebutuhan, mengevaluasi
+            kemampuan awal, menentukan arah belajar, atau mencoba metode
+            pembelajaran sebelum mengambil paket.</small>
+          <div class="amount">GRATIS</div>
+        </div>
+
+        <div class="price featured">
+          <strong>Kursus Pemrograman Privat</strong>
+          <small>Bimbingan perorangan untuk pemula, siswa, mahasiswa, hingga
+            pengembang pemula. Materi dapat mencakup dasar pemrograman,
+            pengembangan sisi belakang, basis data, REST API, proyek, dan
+            peninjauan kode sesuai kebutuhan.</small>
+          <div class="amount">Rp50.000 / jam</div>
+        </div>
+
+        <div class="price featured">
+          <strong>Konsultasi & Bimbingan Karier</strong>
+          <small>Bimbingan untuk mempersiapkan diri menghadapi dunia kerja, mulai
+            dari peta kemampuan dan arah belajar, evaluasi portofolio, CV,
+            strategi melamar pekerjaan, persiapan tes teknis, hingga simulasi
+            wawancara kerja.</small>
+          <div class="amount">Rp50.000 / jam</div>
+        </div>
+
+        <div class="price">
+          <strong>Paket Belajar 10 Jam</strong>
+          <small>Program belajar lebih terstruktur dengan peta belajar yang
+            disesuaikan tujuan peserta. Dapat mencakup latihan pemrograman,
+            proyek, evaluasi kemampuan, peninjauan kode, dan pendampingan
+            karier sesuai kebutuhan.</small>
+          <div class="amount">Rp350.000 / paket</div>
+        </div>
+      </div>
+
+      <details class="price-details">
+        <summary>Lihat Detail Seluruh Daftar Harga</summary>
+        <div class="detail-list">
+          <div>
+            <strong>Kursus Privat</strong><span>Rp50.000 / jam</span>
+            <p>
+              Kursus privat perorangan untuk pemula, siswa, mahasiswa, maupun
+              pengembang pemula.
+            </p>
+          </div>
+          <div>
+            <strong>Konsultasi & Bimbingan Karier</strong><span>Rp50.000 / jam</span>
+            <p>
+              Peta belajar, evaluasi kemampuan, CV, portofolio, tes teknis,
+              wawancara, dan strategi memasuki dunia kerja.
+            </p>
+          </div>
+          <div>
+            <strong>Kursus Kelompok</strong><span>Mulai Rp75.000 / jam</span>
+            <p>
+              Kelas 2–8 peserta dengan harga yang disesuaikan berdasarkan
+              jumlah peserta dan materi.
+            </p>
+          </div>
+          <div>
+            <strong>Paket Belajar 5 Jam</strong><span>Rp200.000 / paket</span>
+            <p>
+              Paket hemat untuk pembelajaran bertahap atau fokus pada topik
+              tertentu.
+            </p>
+          </div>
+          <div>
+            <strong>Paket Belajar 10 Jam</strong><span>Rp350.000 / paket</span>
+            <p>
+              Program belajar lebih terstruktur dengan latihan, proyek, dan
+              evaluasi.
+            </p>
+          </div>
+          <div>
+            <strong>Pembelajaran Berbasis Proyek</strong><span>Mulai Rp400.000 / paket</span>
+            <p>
+              Bimbingan membangun proyek untuk portofolio mulai dari
+              perencanaan hingga peninjauan kode.
+            </p>
+          </div>
+          <div>
+            <strong>Paket Belajar Intensif 20 Jam</strong><span>Rp600.000 / paket</span>
+            <p>
+              Program intensif untuk meningkatkan kemampuan pemrograman atau
+              pengembangan sisi belakang secara lebih serius.
+            </p>
+          </div>
+          <div>
+            <strong>Pelatihan Perusahaan Dasar</strong><span>Rp1.500.000 / paket</span>
+            <p>
+              Pelatihan hingga 4 jam untuk maksimal 10 peserta dengan materi
+              yang dapat disesuaikan.
+            </p>
+          </div>
+          <div>
+            <strong>Pelatihan Perusahaan Profesional</strong><span>Rp3.000.000 / paket</span>
+            <p>
+              Pelatihan hingga 8 jam untuk maksimal 15 peserta dengan
+              kurikulum yang dapat disesuaikan.
+            </p>
+          </div>
+          <div>
+            <strong>Pelatihan Perusahaan Intensif</strong><span>Mulai Rp5.000.000 / paket</span>
+            <p>
+              Pelatihan intensif dengan materi, proyek, evaluasi, dan durasi
+              yang disesuaikan dengan kebutuhan perusahaan.
+            </p>
+          </div>
+          <div>
+            <strong>Kursus & Pelatihan Sesuai Kebutuhan</strong><span>Harga menyesuaikan</span>
+            <p>
+              Tersedia untuk individu, kelompok, komunitas, sekolah, kampus,
+              lembaga pelatihan, maupun perusahaan.
+            </p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="conversation">
+        <div class="hero-label">MASIH RAGU?</div>
+        <h2>Boleh konsultasi dulu.</h2>
+        <p>
+          Belum yakin harus mulai dari mana atau apakah bimbingan ini cocok
+          untukmu? Tidak perlu langsung mengambil paket. Kita bisa mulai dari
+          konsultasi singkat untuk melihat kondisi, target karier, dan
+          kesenjangan kemampuan yang perlu diperbaiki.
+        </p>
+        <p>
+          Bahkan tersedia 1 sesi gratis selama 1 jam untuk mencoba metode
+          belajar, konsultasi karier, atau menentukan learning path sebelum
+          memutuskan untuk lanjut.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="kontak">
+      <div class="contact">
+        <h2>Hubungi Muhamad Oskhar</h2>
+        <p>Untuk konsultasi, kursus privat, atau menentukan peta belajar.</p>
+
+        <a class="contact-row" href="tel:081386380481">
+          <span class="contact-icon">📱</span>
+          <span>
+            <small>WhatsApp / Telepon</small>
+            <strong>0813 8638 0481</strong>
+          </span>
+        </a>
+
+        <a class="contact-row" href="mailto:muhamadoskharm@gmail.com">
+          <span class="contact-icon">✉️</span>
+          <span>
+            <small>Email</small>
+            <strong>muhamadoskharm@gmail.com</strong>
+          </span>
+        </a>
+
+        <a class="btn btn-primary contact-button"
+          href="https://www.superprof.co.id/software-engineer-berpengalaman-perbankan-perusahaan-mengajar-pemrograman-dan-mentoring-karir-software-engineering.html"
+          target="_blank" rel="noopener">
+          Lihat Profile Superprof →
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      Kursus Pemrograman Privat • Sisi Belakang Development • Bimbingan Karier
+      <br />© Muhamad Oskhar
+    </footer>
+  </main>
+</body>
+
+</html>
